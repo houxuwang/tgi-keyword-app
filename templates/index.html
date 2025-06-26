@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TGI 标签筛选器</title>
+    <style>
+        body {
+            background-image: url("/static/my_background.jpg"); /* ✅ 放你喜欢的图片地址 */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            font-family: Arial, sans-serif;
+            color: white; /* 白色文字适配深色图背景 */
+            padding: 10px;
+         
+        }
+    
+        form {
+            background-color: rgba(0, 0, 0, 0.7); /* 深色半透明背景 */
+            padding: 15px;
+            border-radius: 12px;
+            max-width: 350px;
+            margin: 40px auto;
+        }
+    
+        input, label, button {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    
+        input {
+            background-color: #1f1f1f;
+            color: white;
+            border: 1px solid #555;
+            padding: 8px;
+            border-radius: 5px;
+        }
+    
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>TGI 标签筛选工具</h2>
+    <form action="/generate_tags" method="post" enctype="multipart/form-data">
+        <label>上传 Excel 文件：</label><br>
+        <input type="file" name="file" required><br><br>
+
+        <label>base_column：</label>
+        <input type="text" name="base_column" placeholder="如 SegOrigin_0409_ALL-占比 " required><br><br>
+
+        <label>threshold：</label>
+        <input type="text" name="threshold" placeholder="如 0.15 或 nan"><br><br>
+
+        <label>tgi_threshold：</label>
+        <input type="text" name="tgi_threshold" placeholder="如 120 或 nan"><br><br>
+
+        <label>share_threshold：</label>
+        <input type="text" name="share_threshold" placeholder="如 0.05 或 nan"><br><br>
+
+        <label>seg_start_col：</label>
+        <input type="number" name="seg_start_col" required><br><br>
+
+        <label>seg_end_col：</label>
+        <input type="number" name="seg_end_col" required><br><br>
+
+        <label>tgi_start_col：</label>
+        <input type="number" name="tgi_start_col" required><br><br>
+
+        <label>tgi_end_col：</label>
+        <input type="number" name="tgi_end_col" required><br><br>
+
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>
